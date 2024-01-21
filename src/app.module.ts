@@ -1,10 +1,15 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+import { Module, Global } from '@nestjs/common';
+import { ComicsController } from './app/comics.controller';
 import { AppService } from './app.service';
+import { StartupModule } from './startup-module/startup.module';
 
+@Global()
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+      StartupModule
+    ],
+    controllers: [ComicsController],
+    providers: [AppService],
+    exports: []
 })
 export class AppModule {}
