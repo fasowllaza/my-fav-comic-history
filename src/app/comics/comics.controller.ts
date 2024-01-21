@@ -1,7 +1,7 @@
 // comics/comics.controller.ts
 
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { CreateComicDto, UpdateComicDto } from './dto/comic.dto';
+import { CreateComicDto } from '../dto/comic.dto';
 import { ComicsService } from './comics.service';
 
 @Controller('comics')
