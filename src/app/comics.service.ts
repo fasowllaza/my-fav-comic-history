@@ -3,7 +3,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Comic } from 'src/entities/comics.entity';
-import { CreateComicDto, UpdateComicDto } from './dto/comic.dto';
+import { CreateComicDto } from './dto/comic.dto';
 
 @Injectable()
 export class ComicsService {
@@ -22,10 +22,6 @@ export class ComicsService {
 
   async create(createComicDto: CreateComicDto): Promise<Comic> {
     return this.comicModel.create(createComicDto);
-  }
-
-  async update(id: number, updateComicDto: UpdateComicDto): Promise<[number, Comic[]]> {
-    return this.comicModel.update(updateComicDto, { where: { comic_id: id } });
   }
 
   async remove(id: number): Promise<number> {

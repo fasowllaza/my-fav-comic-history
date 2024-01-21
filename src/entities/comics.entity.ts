@@ -14,7 +14,6 @@ export class Comic extends Model {
   @Column(DataType.STRING(128))
   english_name: string;
 
-
   @Column(DataType.STRING(128))
   original_name: string;
 
@@ -27,24 +26,30 @@ export class Comic extends Model {
   @Column(DataType.STRING(32))
   status: string;
 
-  @Column(DataType.NUMBER)
+  @Column(DataType.INTEGER)
   read_chapter: number;
 
-  @Column(DataType.NUMBER)
+  @Column(DataType.INTEGER)
   total_chapter: number;
 
-  @Column(DataType.STRING())
+  @Column(DataType.STRING)
   personal_notes: string;
 
-  @Column(DataType.STRING())
+  @Column(DataType.STRING)
   image_url: string;
 
   @Column(DataType.DATE)
   last_update: Date;
 
-  @Column(DataType.NUMBER)
+  @Column(DataType.INTEGER)
   score_review: number;
+
+  @Column(DataType.STRING)
+  synopsis: string;
 
   @Column(DataType.STRING(64))
   country_of_origin: string;
+
+  @Column(DataType.STRING(64))
+  author: string;
 }
