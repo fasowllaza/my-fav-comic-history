@@ -1,8 +1,16 @@
-import { Table, Column, Model, PrimaryKey, DataType, BelongsToMany, AutoIncrement } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  PrimaryKey,
+  DataType,
+  BelongsToMany,
+  AutoIncrement,
+} from 'sequelize-typescript';
 import { Comic } from './comics.entity';
 import { ComicTag } from './comic-tags.entity';
 
-@Table
+@Table({ tableName: 'Tags' })
 export class Tag extends Model {
   @PrimaryKey
   @AutoIncrement
