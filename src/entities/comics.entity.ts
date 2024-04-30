@@ -50,7 +50,7 @@ export class Comic extends Model {
   @Column(DataType.INTEGER)
   score_review: number;
 
-  @Column(DataType.STRING)
+  @Column(DataType.TEXT)
   synopsis: string;
 
   @Column(DataType.STRING(64))

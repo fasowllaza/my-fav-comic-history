@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     return queryInterface.createTable('Comics', {
       comic_id: {
         type: Sequelize.INTEGER,
@@ -26,47 +26,49 @@ module.exports = {
         type: Sequelize.DATE,
       },
       status: {
-        type: Sequelize.STRING(32)
+        type: Sequelize.STRING(32),
       },
       read_chapter: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       total_chapter: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       personal_notes: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       image_url: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       last_update: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       score_review: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       synopsis: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT,
       },
       country_of_origin: {
-        type: Sequelize.STRING(64)
+        type: Sequelize.STRING(64),
       },
       author: {
-        type: Sequelize.STRING(64)
+        type: Sequelize.STRING(64),
       },
       createdAt: {
-        type: Sequelize.DATE,
         allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
-        type: Sequelize.DATE,
         allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
-    })
+    });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface) {
     return queryInterface.dropTable('Comics');
-  }
+  },
 };

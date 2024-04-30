@@ -8,7 +8,7 @@ import { CreateComicDto } from '../dto/comic.dto';
 export class ComicsService {
   constructor(
     @Inject('COMICS_REPOSITORY')
-    private comicsRepository: typeof Comic
+    private comicsRepository: typeof Comic,
   ) {}
   async findAll(): Promise<Comic[]> {
     return this.comicsRepository.findAll();
@@ -19,12 +19,18 @@ export class ComicsService {
   }
 
   async create(createComicDto: CreateComicDto): Promise<Comic> {
-    const comicData = { ...createComicDto } as any
+    const comicData = {
+      ...createComicDto,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    } as any;
     return this.comicsRepository.create(comicData);
   }
 
   async remove(id: number): Promise<number> {
-    const result = await this.comicsRepository.destroy({ where: { comic_id: id } });
+    const result = await this.comicsRepository.destroy({
+      where: { comic_id: id },
+    });
     return result;
   }
 }
