@@ -1,9 +1,16 @@
 // comic-tag.model.ts
-import { Table, Column, Model, ForeignKey, DataType, BelongsTo } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  ForeignKey,
+  DataType,
+  BelongsTo,
+} from 'sequelize-typescript';
 import { Comic } from './comics.entity';
 import { Tag } from './tags.entity';
 
-@Table
+@Table({ tableName: 'Comics' })
 export class ComicTag extends Model {
   @ForeignKey(() => Comic)
   @Column(DataType.INTEGER)

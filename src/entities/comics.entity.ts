@@ -1,8 +1,14 @@
-import { Table, Column, Model, PrimaryKey, DataType, AutoIncrement } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  PrimaryKey,
+  DataType,
+  AutoIncrement,
+} from 'sequelize-typescript';
 
-@Table
+@Table({ tableName: 'Comics' })
 export class Comic extends Model {
-
   @PrimaryKey
   @AutoIncrement
   @Column({
@@ -12,13 +18,13 @@ export class Comic extends Model {
   comic_id: number;
 
   @Column(DataType.STRING(128))
-  english_name: string;
+  english_title: string;
 
   @Column(DataType.STRING(128))
-  original_name: string;
+  original_title: string;
 
   @Column(DataType.STRING(128))
-  alternate_name: string;
+  alternate_title: string;
 
   @Column(DataType.DATE)
   year_published: Date;

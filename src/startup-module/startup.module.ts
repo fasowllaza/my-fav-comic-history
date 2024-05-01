@@ -5,9 +5,13 @@ import { TerminusModule } from '@nestjs/terminus';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { configValidationSchema, configuration } from './config';
 import { RequestContextModule } from 'nestjs-request-context';
+import { Tag } from 'src/entities/tags.entity';
+import { ComicTag } from 'src/entities/comic-tags.entity';
 
 const models = [
-    Comic
+    Comic,
+    Tag,
+    ComicTag
 ]
 
 @Global()
